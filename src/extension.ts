@@ -8,8 +8,8 @@ import * as path from 'path';
 import * as crypto from 'crypto';
 import * as childprocess from 'child_process';
 
-var jschardet = require('jschardet');//检测字符编码
-var detect = require('charset-detector');//检测字符编码
+// var jschardet = require('jschardet');//检测字符编码
+// var detect = require('charset-detector');//检测字符编码
 var tmpdir = path.join(__dirname,'temp');
 var binpath = path.join(__dirname,'..','..','bin');
 
