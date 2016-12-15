@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@types/iconv-lite": "0.0.1",
+    "charset-detector": "0.0.2",
     "iconv-lite": "^0.4.15",
     "jschardet": "^1.4.1"
   }
