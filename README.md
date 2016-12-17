@@ -10,7 +10,7 @@
 
 ## Requirements
 
-
+最好 vscode >= 1.8
 
 ## Release Notes
 
