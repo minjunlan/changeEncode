@@ -16,9 +16,9 @@ var platform = os.platform();
 var tmpdir = path.join(__dirname,'temp');
 var binpath:string;
 if(platform == 'darwin'){ //支持mac
-    binpath = path.join(__dirname,'..','..','bin');
+    binpath = path.join(__dirname,'..','..','bin','icu');
 }else{ //支持windows
-    binpath = path.join(__dirname,'..','..','bin.exe');
+    binpath = path.join(__dirname,'..','..','bin','icu.exe');
 }
 
 
@@ -91,14 +91,14 @@ class FileCache {
 
 
     showEncoding(){
-        let runbin = path.join(binpath,'icu');
+        //let runbin = path.join(binpath,'icu');
         let buf = this.buffer;
         let chart:string;
         let filepath = path.join(tmpdir,this.md5filename+this.extname);
         this.charset = chart;
         let doc = this.doc;
         
-        childprocess.exec(runbin + ' -t "' + this.srcfilename + '"',(err,stdout,stderr)=>{
+        childprocess.exec(binpath + ' -t "' + this.srcfilename + '"',(err,stdout,stderr)=>{
             chart = stdout
             
             if(chart.toLowerCase().startsWith('gb')){
@@ -118,6 +118,7 @@ class FileCache {
 
                     setTimeout(function() {
                         let textEditor = vscode.window.activeTextEditor;
+                        if(!textEditor) return ;
                         fs.writeFileSync(filepath,iconv.encode(content,'gbk'));
 
                         textEditor.edit((editor)=>{
@@ -138,14 +139,14 @@ class FileCache {
     }
 
     saveFiles(){
-        let runbin = path.join(binpath,'icu');
+        //let runbin = path.join(binpath,'icu');
         let buf = this.buffer;
         let chart:string;
         let filepath = path.join(tmpdir,this.md5filename+this.extname);
         this.charset = chart;
         let doc = this.doc;
         if(fs.existsSync(filepath)){
-            childprocess.exec(runbin + ' -t "' + filepath + '"',(err,stdout,stderr)=>{
+            childprocess.exec(binpath + ' -t "' + filepath + '"',(err,stdout,stderr)=>{
                 chart = stdout;
                     let absolutePath = doc.uri.fsPath;
                     let chunks = [];
