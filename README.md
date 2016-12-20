@@ -1,6 +1,6 @@
 # changeEncode README
 
-支持GBK文档，自动识别GBK，必须是在工作空间。
+支持GBK文档，自动识别GBK，必须是在工作空间。vscode >= 1.8 
 
 ## Features
 
@@ -19,4 +19,8 @@ Users appreciate release notes as you update your extension.
 ### 0.0.2
 
 添加支持windows
+
+### 0.0.3
+
+修改路径不对的bug
 
