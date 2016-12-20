@@ -4,14 +4,23 @@
 import * as vscode from 'vscode';
 import * as iconv from 'iconv-lite';
 import * as fs from 'fs';
+import * as os from 'os';
 import * as path from 'path';
 import * as crypto from 'crypto';
 import * as childprocess from 'child_process';
 
+var platform = os.platform();
+
 // var jschardet = require('jschardet');//检测字符编码
 // var detect = require('charset-detector');//检测字符编码
 var tmpdir = path.join(__dirname,'temp');
-var binpath = path.join(__dirname,'..','..','bin');
+var binpath:string;
+if(platform == 'darwin'){ //支持mac
+    binpath = path.join(__dirname,'..','..','bin');
+}else{ //支持windows
+    binpath = path.join(__dirname,'..','..','bin.exe');
+}
+
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed

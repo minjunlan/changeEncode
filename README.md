@@ -10,11 +10,13 @@
 
 ## Requirements
 
-最好 vscode >= 1.8
+vscode >= 1.8 
 
 ## Release Notes
 
 Users appreciate release notes as you update your extension.
 
-### 1.0.0
+### 0.0.2
+
+添加支持windows
 
