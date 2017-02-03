@@ -28,3 +28,6 @@ Users appreciate release notes as you update your extension.
 
 修改打开单独文件不能转换问题
 
+### 0.0.5
+
+修改打开单独文件不能转换问题

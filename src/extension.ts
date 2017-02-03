@@ -31,6 +31,12 @@ export function activate(context: vscode.ExtensionContext) {
         fs.mkdirSync(tmpdir);
     }
     
+    let activeTextEditor = vscode.window.activeTextEditor;
+    if(activeTextEditor.document !== undefined){
+            let filecache = new FileCache(activeTextEditor.document);
+            filecache.showEncoding();
+    }
+
     let disposable1 = vscode.workspace.onDidOpenTextDocument((doc)=>{
         if(!!doc){
             let filecache = new FileCache(doc);
