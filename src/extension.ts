@@ -53,12 +53,19 @@ export function activate(context: vscode.ExtensionContext) {
     })
     
     // let disposable4 = vscode.commands.registerCommand('extension.changeencode',(e)=>{
-    //     console.log('我是动作：'+e);
+    //     console.log('我是动作：'+context.extensionPath);
     // });
 
+    let disposable4 = vscode.window.onDidChangeActiveTextEditor((textEdit)=>{
+        //console.log('我是动作：'+textEdit.document);   
+        let filecache = new FileCache(textEdit.document);
+        filecache.deleteFiles();
+              
+    })
+    
     context.subscriptions.push(disposable1);
     context.subscriptions.push(disposable2);
-    // context.subscriptions.push(disposable4);
+    context.subscriptions.push(disposable4);
 }
 
 // this method is called when your extension is deactivated

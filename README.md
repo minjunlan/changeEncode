@@ -24,3 +24,7 @@ Users appreciate release notes as you update your extension.
 
 修改路径不对的bug
 
+### 0.0.4
+
+修改打开单独文件不能转换问题
+

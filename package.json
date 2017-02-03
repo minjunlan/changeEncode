@@ -2,7 +2,7 @@
     "name": "changeEncode",
     "displayName": "changeEncode",
     "description": "auto change encode",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "publisher": "lanmj2004",
     "engines": {
         "vscode": "^1.8.0"
