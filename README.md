@@ -35,3 +35,11 @@ Users appreciate release notes as you update your extension.
 ### 0.0.6
 
 去掉保存事件
+
+### 0.0.7
+
+修改bug
+
+### 0.0.8
+
+保存时报错的几率小点

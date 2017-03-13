@@ -44,16 +44,17 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
     })
-   /*
+   
     let disposable2 = vscode.workspace.onDidSaveTextDocument((doc)=>{
-        if(!!doc){
+        if(!!doc ){
             let filecache = new FileCache(doc);
             filecache.saveFiles();
         }  
     })
-    */
+    
     let disposable3 = vscode.workspace.onDidCloseTextDocument((doc)=>{
-         if(!!doc){
+           
+         if(!!doc ){
             let filecache = new FileCache(doc);
             filecache.deleteFiles();
         }        
@@ -71,7 +72,7 @@ export function activate(context: vscode.ExtensionContext) {
     })
     
     context.subscriptions.push(disposable1);
-    //context.subscriptions.push(disposable2);
+    context.subscriptions.push(disposable2);
     context.subscriptions.push(disposable4);
 }
 
@@ -130,7 +131,7 @@ class FileCache {
                 reader.on('end', function () {
                     content = chunks.join('');
 
-                    setTimeout(function() {
+                    //setTimeout(function() {
                         let textEditor = vscode.window.activeTextEditor;
                         if(!textEditor) return ;
                         fs.writeFileSync(filepath,iconv.encode(content,'gbk'));
@@ -143,7 +144,7 @@ class FileCache {
 
                         })
                         
-                    }, 100);
+                    //}, 100);
                 });
 
 
@@ -181,7 +182,4 @@ class FileCache {
     }
 
 }
-
-
-
 
