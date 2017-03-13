@@ -42,15 +42,16 @@ export function activate(context: vscode.ExtensionContext) {
             let filecache = new FileCache(doc);
             filecache.showEncoding();
         }
-    })
 
+    })
+   /*
     let disposable2 = vscode.workspace.onDidSaveTextDocument((doc)=>{
         if(!!doc){
             let filecache = new FileCache(doc);
             filecache.saveFiles();
         }  
     })
-
+    */
     let disposable3 = vscode.workspace.onDidCloseTextDocument((doc)=>{
          if(!!doc){
             let filecache = new FileCache(doc);
@@ -70,7 +71,7 @@ export function activate(context: vscode.ExtensionContext) {
     })
     
     context.subscriptions.push(disposable1);
-    context.subscriptions.push(disposable2);
+    //context.subscriptions.push(disposable2);
     context.subscriptions.push(disposable4);
 }
 
@@ -114,7 +115,7 @@ class FileCache {
         childprocess.exec(binpath + ' -t "' + this.srcfilename + '"',(err,stdout,stderr)=>{
             chart = stdout
             
-            if(chart.toLowerCase().startsWith('gb')){
+            if(chart.toLowerCase().startsWith('gb') || doc.getText().indexOf('�') !== -1){
                 //vscode.window.showInformationMessage(this.charset);
                 let absolutePath = doc.uri.fsPath;
                 let chunks = [];
